@@ -8,6 +8,7 @@ deps/
 fullchain.pem
 home-assistant.log
 home-assistant_v2.db
+home-assistant_v2.db*
 known_devices.yaml
 options.xml
 plex.conf
