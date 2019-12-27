@@ -1,1 +1,6 @@
 
+  - platform: command_line
+    command: 'if nc -z 192.168.199.107 36669; then echo "ON"; else echo "OFF"; fi'
+    name: 'TVStatus'
+    payload_on: "ON"
+    payload_off: "OFF"
