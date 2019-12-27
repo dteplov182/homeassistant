@@ -1,3 +1,7 @@
+
+  - platform: wake_on_lan
+    name: "tv_wol"
+    mac_address: "10-c7-53-c2-9c-6e"
   - platform: template
     switches:
       moonlight:
@@ -22,7 +26,5 @@
           service: input_boolean.turn_off
           data:
             entity_id:  input_boolean.tv_bool
-  - platform: wake_on_lan
-    name: "tv_wol"
-    mac_address: "10-c7-53-c2-9c-6e"
+
 
