@@ -56,7 +56,6 @@ map:
 # Weather prediction
 #sensor:
 #  - platform: yr
-sensor: !include sensors.yaml
 # Text to speech
 tts:
   - platform: google_translate
@@ -74,6 +73,9 @@ light: !include lights.yaml
 scene: !include_dir_list scenes
 switch: !include switches.yaml
 zone: !include zone.yaml
+sensor: !include sensors.yaml
+inputboolean: !include inputsboolean.yaml
+
 device_tracker:
 
 
