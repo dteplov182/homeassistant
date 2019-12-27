@@ -76,11 +76,6 @@ inputboolean: !include inputsboolean.yaml
 device_tracker:
 
 
-yeelight:
-    devices:
-      192.168.199.111:
-        name: "Color Lamp"
-      192.168.199.100:
-        name: "Room Lamp"
+yeelight: !include yeelights.yaml
 
 

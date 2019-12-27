@@ -1,0 +1,5 @@
+    devices:
+      192.168.199.111:
+        name: "Color Lamp"
+      192.168.199.100:
+        name: "Room Lamp"
