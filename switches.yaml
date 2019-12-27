@@ -1,0 +1,15 @@
+  - platform: template
+    switches:
+      moonlight:
+        value_template: "{{ is_state('binary_sensor.room_lamp_nightlight', 'on') }}"
+        turn_on:
+          service: yeelight.set_mode
+          data:
+            entity_id: light.room_lamp
+            mode: moonlight
+        turn_off:
+          service: yeelight.set_mode
+          data:
+            entity_id: light.room_lamp
+            mode: normal
+

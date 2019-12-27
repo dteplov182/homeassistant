@@ -1,0 +1,28 @@
+name: Green
+entities:
+  light.round_lamp:
+    state: off
+  light.kitchen_table:
+    state: off
+  light.kitchen_cook:
+    state: off
+  light.bath_lamp:
+    state: off
+  light.main_kitchen:
+    state: off
+  light.hall_lamp:
+    state: off
+  light.desk_lamp:
+    state: on
+    brightness: 255
+    rgb_color: [0, 255, 0]
+  light.color_lamp:
+    state: on
+    brightness: 255
+    rgb_color: [0, 255, 0]
+  light.room_lamp:
+    state: off
+  light.room_lamp_ambilight:
+    state: on
+    brightness: 255
+    rgb_color: [0, 255, 0]

@@ -1,0 +1,58 @@
+
+  - platform: darksky
+    api_key: !secret darksky_api_key
+    monitored_conditions:
+      - summary
+      - icon
+      - temperature
+      - wind_speed
+      - humidity
+      - visibility
+      - temperature_high
+      - temperature_low
+      - apparent_temperature
+      - precip_probability
+      - minutely_summary
+      - hourly_summary
+
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /
+      - type: memory_use_percent
+      - type: processor_use
+      - type: network_in
+        arg: enp3s0
+      - type: network_out
+        arg: enp3s0
+
+  - platform: rest
+    resource: https://narodmon.ru/api/sensorsOnDevice?id=6782&uuid=ba27b2999da2d27df62c9e2ce55b3a94&api_key=3N5Y1CnaNN9cZ
+    name: narodmon
+    json_attributes:
+      - location
+      - sensors
+    value_template: '{{ value_json.id }}'
+    scan_interval: 180
+    headers:
+      User-Agent: Home Assistant
+
+  - platform: template
+    sensors:
+      narodmon_temperature:
+        value_template: '{{ states.sensor.narodmon.attributes.sensors[0].value }}'
+        device_class: temperature
+        friendly_name: 'Narodmon Temperature'
+        unit_of_measurement: '°C'
+
+      narodmon_pressure:
+        value_template: '{{ states.sensor.narodmon.attributes.sensors[1].value }}'
+        device_class: humidity
+        friendly_name: 'Narodmon Pressure'
+        unit_of_measurement: 'mmHg'
+      narodmon_humidity:
+        value_template: '{{ states.sensor.narodmon.attributes.sensors[2].value }}'
+        device_class: pressure
+        friendly_name: 'Narodmon Humidity'
+        unit_of_measurement: '%'
+

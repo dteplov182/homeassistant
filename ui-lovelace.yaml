@@ -1,0 +1,230 @@
+title: Home
+
+resources:
+  - url: /local/custom_elements/button-card.js
+    type: module
+  - url: /local/custom_elements/slider-entity-row.js
+    type: module
+  - url: /local/custom_elements/card-modder.js
+    type: js
+  - url: /local/custom_elements/mini-media-player-bundle.js?v=0.9.2
+    type: module
+# Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
+# background: center / cover no-repeat url("/background.png") fixed
+# Exclude entities from "Unused entities" view
+views:
+  - title: Панель
+    id: Main
+    # background: radial-gradient(crimson, skyblue)
+    theme: dark-mode
+    cards:
+      - id: cardlight 
+        type: entities
+        entities:
+          - light.hall_lamp
+          - light.bath_lamp
+          - light.kitchen_table
+          - light.kitchen_cook
+          - light.main_kitchen
+          - light.room_lamp
+        title: Свет
+      - id: cardlight_color
+        type: entities
+        entities:
+          - entity: light.desk_lamp
+          - entity: light.color_lamp
+        title: Подсветка
+        
+      - id: cardmedia
+        type: entities
+        entities:
+          - entity: media_player.googlehome
+            type: custom:mini-media-player 
+            show_tts: google
+            show_progress: true
+            group: true
+          - entity: media_player.samsung_tv
+            type: custom:mini-media-player 
+            hide_controls: true
+            volume_stateless: true
+            more_info: false
+            group: true
+            name: TV
+        title: Медиа
+
+      - id: cardpc
+        type: horizontal-stack
+        cards:
+         - type: "custom:button-card"
+           action: service
+           icon: mdi:desktop-classic
+           name: "Дима"
+           service:
+            domain: switch
+            action: turn_off
+            data:
+               entity_id: switch.first_computer
+         - type: "custom:button-card"
+           action: service
+           icon: mdi:desktop-classic
+           name: "Тоня(off)"
+           service:
+            domain: switch
+            action: turn_off
+            data:
+               entity_id: switch.firstpc
+         - type: "custom:button-card"
+           entity: switch.first_monitor
+           icon: mdi:monitor
+           name: "Дима"
+           show_state: false
+         - type: "custom:button-card"
+           entity: switch.first_monitor
+           icon: mdi:monitor
+           name: "Тоня*"
+           show_state: false
+        title: Компьютеры
+     
+        
+  - title: Цветной свет
+    id: ambientui
+    # background: radial-gradient(crimson, skyblue)
+    theme: dark-mode
+    cards:
+      - type: entities
+        entities:
+        - light.desk_lamp
+        name: Desk
+      - type: horizontal-stack
+        cards:
+         - type: "custom:button-card"
+           action: service
+           icon: mdi:flower
+           color_type: card
+           color: rgb(0, 240, 0)
+           name: "Forest"
+           service:
+            domain: light
+            action: xiaomi_miio_set_scene
+            data:
+               entity_id: light.desk_lamp
+               scene: "1"
+         - type: "custom:button-card"
+           action: service
+           icon: mdi:account-multiple
+           color_type: card
+           color: rgb(255, 51, 204)
+           name: "Romance"
+           service:
+            domain: light
+            action: xiaomi_miio_set_scene
+            data:
+               entity_id: light.desk_lamp
+               scene: "2"
+         - type: "custom:button-card"
+           action: service
+           icon: mdi:weather-sunset-down
+           color_type: card
+           color: rgb(255, 102, 0)
+           name: "Sunset"
+           service:
+            domain: light
+            action: xiaomi_miio_set_scene
+            data:
+               entity_id: light.desk_lamp
+               scene: "3"
+         - type: "custom:button-card"
+           action: service
+           icon: mdi:panorama
+           color_type: card
+           color: rgb(0, 102, 204)
+           name: "Ocean"
+           service:
+            domain: light
+            action: xiaomi_miio_set_scene
+            data:
+               entity_id: light.desk_lamp
+               scene: "4"
+      - type: entities
+        entities:
+         - light.color_lamp
+        name: "Цветная лампа"
+      - type: horizontal-stack
+        cards:
+         - type: "custom:button-card"
+           action: service
+           icon: mdi:flower
+           color_type: card
+           color: lime
+           name: "Lime"
+           service:
+            domain: light
+            action: turn_on
+            data:
+               entity_id: light.color_lamp
+               brightness: 200
+               color_name: "lime"
+         - type: "custom:button-card"
+           action: service
+           icon: mdi:account-multiple
+           color_type: card
+           color: Fuchsia
+           name: "Fuchsia"
+           service:
+            domain: light
+            action: turn_on
+            data:
+               entity_id: light.color_lamp
+               brightness: 200
+               color_name: "Fuchsia"
+         - type: "custom:button-card"
+           action: service
+           icon: mdi:weather-sunset-down
+           color_type: card
+           color: Red
+           name: "Red"
+           service:
+            domain: light
+            action: turn_on
+            data:
+               entity_id: light.color_lamp
+               brightness: 200
+               color_name: "Red"
+         - type: "custom:button-card"
+           action: service
+           icon: mdi:panorama
+           color_type: card
+           color: DodgerBlue
+           name: "DBlue"
+           service:
+            domain: light
+            action: turn_on
+            data:
+               entity_id: light.color_lamp
+               brightness: 200
+               color_name: "DodgerBlue"
+         - type: "custom:button-card"
+           action: service
+           icon: mdi:panorama
+           color_type: card
+           color: Blue
+           name: "Blue"
+           service:
+            domain: light
+            action: turn_on
+            data:
+               entity_id: light.color_lamp
+               brightness: 200
+               color_name: "Blue"
+         - type: "custom:button-card"
+           action: service
+           icon: mdi:panorama
+           color_type: card
+           name: "Normal"
+           service:
+            domain: light
+            action: turn_on
+            data:
+               entity_id: light.color_lamp
+               brightness: 255
+               color_temp: 285
