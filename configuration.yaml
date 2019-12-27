@@ -72,10 +72,12 @@ switch: !include switches.yaml
 zone: !include zone.yaml
 sensor: !include sensors.yaml
 inputboolean: !include inputsboolean.yaml
+yeelight: !include yeelights.yaml
+
 
 device_tracker:
 
 
-yeelight: !include yeelights.yaml
+
 
 
