@@ -71,7 +71,7 @@ scene: !include_dir_list scenes
 switch: !include switches.yaml
 zone: !include zone.yaml
 sensor: !include sensors.yaml
-inputboolean: !include inputsboolean.yaml
+input_boolean: !include inputsboolean.yaml
 yeelight: !include yeelights.yaml
 
 
