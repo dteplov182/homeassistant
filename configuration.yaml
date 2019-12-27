@@ -73,7 +73,7 @@ zone: !include zone.yaml
 sensor: !include sensors.yaml
 input_boolean: !include inputsboolean.yaml
 yeelight: !include yeelights.yaml
-
+binary_sensor: !include binarysensors.yaml
 
 device_tracker:
 
