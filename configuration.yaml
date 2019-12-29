@@ -79,6 +79,6 @@ binary_sensor: !include binarysensors.yaml
 device_tracker:
 
 
-
+yandex_smart_home:
 
 
