@@ -21,11 +21,12 @@ frontend:
 config:
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-#http:
-#  base_url: home.ice-flame.ru:19991
-#  ssl_certificate: /home/homeassistant/.homeassistant/fullchain.pem
-#  ssl_key: /home/homeassistant/.homeassistant/privkey.pem
-#  server_port: 19991
+
+http:
+  base_url: https://h.icfl.me:8998
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  server_port: 8998
 # Checks for available updates
 # Note: This component will send some information about your system to
 # the developers to assist with development of Home Assistant.
@@ -62,7 +63,7 @@ tts:
 cloud:
 
 mqtt:
-  broker: 192.168.199.101
+  broker: localhost
 
 automation: !include automations.yaml
 script: !include scripts.yaml
